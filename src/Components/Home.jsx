@@ -45,10 +45,7 @@ import Hnews from './Hnews';
                                 newnews.push(element)
                             }
                         })
-                        let ids = localStorage.getItem('IDS')
-                        let arrayid = JSON.parse(ids)
-                        arrayid.push(id)
-                        localStorage.setItem('IDS',JSON.stringify(arrayid))
+                       
                         this.setState({
                             data:newnews
                         })
