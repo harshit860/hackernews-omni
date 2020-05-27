@@ -24,42 +24,10 @@ import Hnews from './Hnews';
                         axios.get(`https://hn.algolia.com/api/v1/search_by_date?tags=story&page=${this.state.pageno}`)
                         .then(resp => {
                             let newnews = []
-                                        if( localStorage.getItem('IDS') == null)
-                                    {
-                                    let names = []
-                                    localStorage.setItem('IDS',JSON.stringify(names))
-
-                                    }
-                                    else
-                                    {
-                                        let ids = localStorage.getItem('IDS')
-                                        let newids = JSON.parse(ids)
-                                        
-                                        resp.data.hits.map( id =>{
-                                            for(let a=0;a<newids.length;a++)
-                                            {
-                                                let done = []
-                                                if(id.objectID == newids[a])
-                                                {
-                                                        // console.log(id)
-                                                }
-                                                else
-                                                {
-                                                    if(newnews.includes(id) == false)
-                                                    {
-                                                        newnews.push(id)
-                                                        done.push(id)
-                                                    }
-                                                }
-                                            }
-                                        })
-                                        console.log(newnews)
-
-                                        
-                                    }
+                                     
 
                             this.setState({
-                                data:newnews
+                                data:resp.data.hits
                             })
                         })
                         .catch(err => console.log(err))
