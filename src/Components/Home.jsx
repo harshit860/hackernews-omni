@@ -85,10 +85,32 @@ import Hnews from './Hnews';
                             data:newnews
                         })
                     }
+
+                    vote = (element) =>{
+                            console.log(element)
+                            let newar = []
+                            this.state.data.map( (elem,index) =>{
+                                if(elem.objectID == element)
+                                {
+                                    elem.points = Number(elem.points) + 1
+                                    newar.push(elem)
+                                }
+                                else
+                                {
+                                    newar.push(elem)
+                                }
+                            })
+
+                            this.setState({
+                                    data:newar
+                            })
+
+
+                    }
       render() {
         return (
           <div style={{height:"100%"}}> 
-                <Hnews deletefun={this.delete} data={this.state}/>
+                <Hnews deletefun={this.delete} data={this.state} vote={this.vote}/>
                 <div className="col-12 justify-content-end d-flex">
                             <button className="btn" style={{color:"#ff6600"}} onClick={this.previous}>Previous</button>
                             <button disabled style={{color:"#ff6600"}} className="btn">|</button>

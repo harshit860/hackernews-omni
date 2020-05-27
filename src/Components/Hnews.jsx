@@ -11,7 +11,7 @@ export default function Hnews(props) {
             return <div className = "row news col-12">
                     <div className="col-2 ">{element.num_comments}</div>
                     <div className="col-1">{element.points}</div>
-                    <div className="col-1"><img style={{ cursor: "pointer" }} width="12" height="12" src={up} ></img></div>
+                    <div className="col-1"><img style={{ cursor: "pointer" }} width="12" height="12" src={up} onClick={() => props.vote(element.objectID)}></img></div>
                     <div className = "row col-7 ">
                         <a style={{ textDecoration: 'none', color: "black" }} href={element.url}>{element._highlightResult.title.value}</a>
                         <div style={{ color: "grey" }}>({sitename})</div>
