@@ -7,7 +7,8 @@ import Hnews from './Hnews';
                         super(props)
                         this.state = {
                                 data:[],
-                                pageno:0
+                                pageno:0,
+                                new:false
                         }
                     }
                         previous = () =>{
