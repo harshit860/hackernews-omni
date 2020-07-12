@@ -5,6 +5,7 @@
 ->Pagination
 ->Hide
 ->Responsiveness
+->Vote count
 
 
 
